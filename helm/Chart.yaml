@@ -1,0 +1,5 @@
+apiVersion: v2
+name: kubernetes-live-images
+description: Pulls metadata for images used by running pods to prevent ECR lifecycle policies from deleting them
+version: 0.1.0
+appVersion: "0.1.0"

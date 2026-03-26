@@ -1,0 +1,36 @@
+version: 2
+
+builds:
+  - binary: kubernetes-live-images
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+dockers:
+  - image_templates:
+      - "ghcr.io/duncan/kubernetes-live-images:{{ .Version }}-amd64"
+    use: buildx
+    build_flag_templates:
+      - "--platform=linux/amd64"
+    goarch: amd64
+  - image_templates:
+      - "ghcr.io/duncan/kubernetes-live-images:{{ .Version }}-arm64"
+    use: buildx
+    build_flag_templates:
+      - "--platform=linux/arm64"
+    goarch: arm64
+
+docker_manifests:
+  - name_template: "ghcr.io/duncan/kubernetes-live-images:{{ .Version }}"
+    image_templates:
+      - "ghcr.io/duncan/kubernetes-live-images:{{ .Version }}-amd64"
+      - "ghcr.io/duncan/kubernetes-live-images:{{ .Version }}-arm64"
+  - name_template: "ghcr.io/duncan/kubernetes-live-images:latest"
+    image_templates:
+      - "ghcr.io/duncan/kubernetes-live-images:{{ .Version }}-amd64"
+      - "ghcr.io/duncan/kubernetes-live-images:{{ .Version }}-arm64"

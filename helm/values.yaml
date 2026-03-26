@@ -1,0 +1,6 @@
+image:
+  repository: ghcr.io/duncan/kubernetes-live-images
+  tag: latest
+  pullPolicy: IfNotPresent
+
+schedule: "0 */6 * * *"
