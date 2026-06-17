@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/google/go-containerregistry v0.21.5
 	github.com/google/go-containerregistry/pkg/authn/k8schain v0.0.0-20260326164908-4cb93aef099e
-	k8s.io/apimachinery v0.36.0
+	k8s.io/apimachinery v0.36.2
 	k8s.io/client-go v0.35.3
 )
 
